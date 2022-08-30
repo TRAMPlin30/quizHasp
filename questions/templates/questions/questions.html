@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block scripts%}
+<script src="{% static 'js/test.js' %}" defer></script>
+{% endblock scripts%}
+
+{% block title %}tests{% endblock %}
+
+{% block content %}
+<div class="col-md-8 mx-auto">
+    <h2>
+        <p></p>
+        <h4>
+            {{test_name.name}}
+
+            <form id="questions-form" class="mt-3 mb-3">
+                {% csrf_token %}
+                <div id="questions-box"></div>
+                <button type="submit" class="btn btn-primary mt-3">Відповісти</button>
+            </form>
+            <p></p>
+        </h4>
+    </h2>
+</div>
+{% endblock content %}

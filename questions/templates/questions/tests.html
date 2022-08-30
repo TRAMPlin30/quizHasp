@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block scripts%}
+    <script src="{% static 'js/main.js' %}" defer></script>
+{% endblock scripts%}
+
+{% block title %}tests{% endblock %}
+
+{% block content %}
+<div class="row ">
+    <div>
+        <!--        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+        <!--        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
+        <!--            Launch demo modal-->
+        <!--        </button>-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="testsListModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Розпочати тестування?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal-test-confirm">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Ні</button>
+                        <button type="button" id="start-button" class="btn btn-success">Так</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1>
+            {% for test in tests_list %}
+            <p></p>
+            <h3>
+                <button
+                        class="btn btn-link modal-button"
+                        data-pk="{{test.id}}"
+                        data-name="{{test.name}}"
+                        data-questions="{{test.number_of_questions}}"
+                        data-time="{{test.time}}"
+                        data-pass="{{test.required_score_to_pass}}"
+                        data-bs-toggle="modal"
+                        data-bs-target="#testsListModal">
+                    {{test.name}}
+                </button>
+            </h3>
+            {% endfor %}
+        </h1>
+        <hr>
+
+        {% endblock content %}
+    </div>
+
+</div>

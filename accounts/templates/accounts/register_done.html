@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ТОВ "СМСЗ"
+{% endblock title %}
+
+
+{% block content %}
+<p></p>
+<p></p>
+<h2> Ви успішно зареєстровані, {{ new_user }}! </h2>
+<hr>
+<h2> Увійдіть натиснувши на кнопку нижче! </h2>
+<p></p>
+<p><a class="btn btn-success" href="{% url 'accounts:login'%}">Увійти</a></p>
+{% endblock content %}

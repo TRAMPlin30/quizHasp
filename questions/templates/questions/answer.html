@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}tests{% endblock %}
+
+{% block content %}
+<div class="col-md-8 mx-auto">
+    <h1>
+        <p></p>
+        <!--        <p>{{questions.filter.question.id.name}}</p>-->
+        {% for answer in answers %}
+        <input type="radio" value="{{answer.name}}" name="chosenAnswer">
+        <p>{{answer.name}}</p>
+        {% endfor %}
+        <input type="submit" class="btn badge-primary" value="Click" onclick="answerDisplay()"/>
+        <b style="color: green;" id="selectedanswer"></b>
+
+
+        </form>
+
+
+    </h1>
+    </h1>
+</div>
+{% endblock content %}

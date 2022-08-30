@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}tests{% endblock %}
+
+{% block content %}
+<div class="row ">
+    <div class="col-md-4 mx-auto">
+        <p></p>
+        <div class="container">
+            <div class="row">
+                <div class="auto">
+                    <center>
+                        <form action="" method="post">
+
+                            {% csrf_token %}
+                            {{ worker_form.as_p }}
+
+                            <button type="submit" class="btn btn-success">Отправить данные</button>
+                        </form>
+                    </center>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+    </div>
+</div>
