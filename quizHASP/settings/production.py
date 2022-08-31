@@ -35,7 +35,7 @@ SECRET_KEY = 'django-insecure-l1_nr4=jmwt496pgz!!128#dbz5re4&r-rr!xnq&0-gf@-0^ll
 DEBUG = False
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://hasp-quizless.herokuapp.com/']
 
 # Application definition
 
