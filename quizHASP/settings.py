@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l1_nr4=jmwt496pgz!!128#dbz5re4&r-rr!xnq&0-gf@-0^ll
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['TRAMPlin30.pythonanywhere.com.']
 
 
 # Application definition
@@ -123,8 +123,10 @@ USE_TZ = True
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/TRAMPlin30/quizHasp/static'
 #STATICFILES_DIRS = [BASE_DIR / 'questions/static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles' - для работы локально
+
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'static',
 #     BASE_DIR / 'questions' / 'static'
