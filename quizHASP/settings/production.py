@@ -22,8 +22,8 @@ DB_USER = os.environ.get('DB_USER')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -136,7 +136,7 @@ USE_TZ = True
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'questions/static']
+#STATICFILES_DIRS = [BASE_DIR / 'questions/static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
