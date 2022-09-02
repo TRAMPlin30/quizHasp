@@ -6,11 +6,19 @@
 
 
 {% block content %}
-<p></p>
-<p></p>
-<h2> Ви успішно зареєстровані, {{ new_user }}! </h2>
-<hr>
-<h2> Увійдіть натиснувши на кнопку нижче! </h2>
-<p></p>
-<p><a class="btn btn-success" href="{% url 'accounts:login'%}">Увійти</a></p>
+<div class="container col-md-5 mx-auto my-font">
+    <div class="row">
+        <div class="auto">
+            <center>
+                <p></p>
+                <p></p>
+                <h2> Ви успішно зареєстровані, {{ new_user }}! </h2>
+                <hr>
+                <h2> Увійдіть натиснувши на кнопку нижче! </h2>
+                <p></p>
+                <p><a class="btn btn-success" href="{% url 'accounts:login'%}">Увійти</a></p>
+            </center>
+        </div>
+    </div>
+</div>
 {% endblock content %}

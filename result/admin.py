@@ -18,8 +18,14 @@ class ResultResource(resources.ModelResource):
 
 @admin.register(Result)
 class ResultAdmin(ImportExportModelAdmin):
+
     list_display = ('user', 'test', 'score')
     resource_class = ResultResource
+
+    class Meta:
+        ordering = ['user']
+
+
     pass
 
 # admin.site.register(Result)

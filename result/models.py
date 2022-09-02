@@ -10,11 +10,10 @@ class Result(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     score = models.FloatField()
 
-
-    class Meta:
-        db_tablespace = 'result_result'
-
     def __str__(self):
         fixed_quantity_questions = 4
         actual_score_to_pass = int((self.score / fixed_quantity_questions) * 100)
         return f'{self.user} - {self.test} Правильных ответов: {actual_score_to_pass}%'
+
+    class Meta:
+        db_tablespace = 'result_result'

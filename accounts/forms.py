@@ -6,10 +6,10 @@ User = get_user_model()
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label='username', widget=forms.TextInput(attrs={'class': 'form-control',
-                                                                               'placeholder': 'Введите username'}))
-    password = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                                   'placeholder': 'Введите password'}))
+    username = forms.CharField(label='ПІБ та підрозділ (цех)', widget=forms.TextInput(attrs={'class': 'form-control',
+                                                                                             'placeholder': 'Введіть ПІБ та підрозділ вказані при реєстрації'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                                 'placeholder': 'Введіть пароль'}))
 
     def clean(self, *args, **kwargs):
         username = self.cleaned_data.get('username')
@@ -17,22 +17,23 @@ class UserLoginForm(forms.Form):
         if username and password:
             qs = User.objects.filter(username=username)
             if not qs.exists():
-                raise forms.ValidationError('Такого пользователя нет')
+                raise forms.ValidationError('Такий користувач не зареєстрований або видалений із системи')
             if not check_password(password, qs[0].password):
-                raise forms.ValidationError('Неверный пароль')
+                raise forms.ValidationError('Невірно вказанний пароль')
             user = authenticate(username=username, password=password)
             if not user:
-                raise forms.ValidationError('Данный пользователь не активен')
+                raise forms.ValidationError('Користувач не активний')
         return super().clean(*args, **kwargs)
 
 
 class UserRegistrationForm(forms.ModelForm):
-    username = forms.CharField(label='username', widget=forms.TextInput(attrs={'class': 'form-control',
-                                                                               'placeholder': 'Введите username'}))
-    password = forms.CharField(label='password', widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                                   'placeholder': 'Введите password'}))
-    password2 = forms.CharField(label='password2', widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                                     'placeholder': 'Повторите password'}))
+    username = forms.CharField(label='Введіть ПІБ та підрозділ (цех)',
+                               widget=forms.TextInput(attrs={'class': 'form-control',
+                                                             'placeholder': 'Введіть ПІБ та підрозділ згідно інструкцій!'}))
+    password = forms.CharField(label='Введіть пароль', widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                                         'placeholder': 'Введіть пароль'}))
+    password2 = forms.CharField(label='Повторіть пароль', widget=forms.PasswordInput(attrs={'class': 'form-control',
+                                                                                            'placeholder': 'Повторіть пароль'}))
 
     class Meta:
         model = User
@@ -45,5 +46,5 @@ class UserRegistrationForm(forms.ModelForm):
         data = self.cleaned_data
 
         if data['password'] != data['password2']:
-            raise forms.ValidationError('Пароли не совпадают')
+            raise forms.ValidationError('!!!')  # 'Паролі відрізняються!' - можно вставыть в скобочки и в html а можно указать как указано register.html
         return self.data['password2']

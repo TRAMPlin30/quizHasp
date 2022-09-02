@@ -1,31 +1,49 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Регистрация
+Регистрация
 {% endblock title %}
 
 
 {% block content %}
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="col-md-8 mx-auto my-font text-center">
+    <h5>
+        <hr>
+        Для корректної реєстрації та уникнення проблем при перевірці результатів тестування
+        вводіть ПІБ без розділових знаків та пропусків чі пробілів. Також, через дефіс вкажіть підрозділь або цех
+        в якому працюєте. Наприклад:
+        <p></p>
+        ІвановПетроСидорович-ЦГП,
+        або
+        ІванченкоОлександрПетрович-СОМ
+        <p></p>
+        Пароль вказуйте на власний розсуд.
+         <p></p>
+        Важливо: запамїятайте дані які Ви вводите в форму. Після успішної реєстрації Вас буде перенаправлено до форми входу,
+        де Вам потрібно буде увійти до системи використовуючі вказані Вами данні!
+        <br>
+        <hr>
+    </h5>
+</div>
 
-<div class="container">
+<div class="container col-md-5 mx-auto my-font">
     <div class="row">
         <div class="auto">
-        <center>
-        <form  action="" method="post">
+            <center>
+                <form action="" method="post">
 
-             {% csrf_token %}
-             {{ form_register.as_p }}
+                    {% csrf_token %}
+                    {{ form_register.as_p }}
+                    {% if form_register.errors %}
+                    {% for error in form_register.errors %}
+                    <p style="color:red">Паролі відрізняються або вказані некорректні данні</p>
+                    {% endfor %}
+                    {% endif %}
 
-             <button type="submit" class="btn btn-success">Зарегестрироваться</button>
-          </form>
-        </center>
+                    <button type="submit" class="btn btn-success">Зареєструватись</button>
+                </form>
+            </center>
         </div>
     </div>
 </div>
