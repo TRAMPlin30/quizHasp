@@ -1,14 +1,16 @@
+
+
 from django.contrib.auth.models import User
 from django.db import models
 
 from questions.models import Test
-from workers.models import Worker
 
 
 class Result(models.Model):
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     score = models.FloatField()
+    time = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         fixed_quantity_questions = 4

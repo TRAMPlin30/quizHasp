@@ -8,19 +8,50 @@
 {% block title %}tests{% endblock %}
 
 {% block content %}
-<div class="col-md-8 mx-auto">
-    <h2>
-        <p></p>
-        <h4>
-            {{test_name.name}}
+<div class="row ">
+    <div>
+        <!--modal window-->
+        <div class="modal fade" id="sendResultModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Відправити відповіді?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal-send-result">
 
-            <form id="questions-form" class="mt-3 mb-3">
-                {% csrf_token %}
-                <div id="questions-box"></div>
-                <button type="submit" class="btn btn-primary mt-3">Відповісти</button>
-            </form>
-            <p></p>
-        </h4>
-    </h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Ні</button>
+                        <button type="button" id="send-button" class="btn btn-success">Так</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--modal window-->
+
+
+        <div class="col-md-8 mx-auto">
+            <h2>
+                <p></p>
+                <h2 class="my-font">
+                    {{test_name.name}}
+
+                    <form id="questions-form" class="mt-3 mb-3 my-font-other">
+                        {% csrf_token %}
+                        <div id="questions-box"></div>
+                        <button type="submit"
+                                class="btn btn-primary mt-3 modal-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#sendResultModal"
+                                >Відповісти
+                        </button>
+                    </form>
+                    <p></p>
+                </h2>
+            </h2>
+        </div>
+    </div>
 </div>
 {% endblock content %}

@@ -19,7 +19,7 @@ class ResultResource(resources.ModelResource):
 @admin.register(Result)
 class ResultAdmin(ImportExportModelAdmin):
 
-    list_display = ('user', 'test', 'score')
+    list_display = ('user', 'test', 'score', 'time')
     resource_class = ResultResource
 
     class Meta:

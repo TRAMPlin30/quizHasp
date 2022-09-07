@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.generic.base import View
 
@@ -74,10 +74,15 @@ def save_test_view(request, pk):
         score_ = score * multiplier
         Result.objects.create(test=test, user=user, score=score)
 
+
         if score_ >= test.required_score_to_pass:
             return JsonResponse({'passed': True, 'score': score_, 'results': results, 'user': user.username})
         else:
             return JsonResponse({'passed': False, 'score': score_, 'results': results, 'user': user.username})
+
+
+def end_of_test(request):
+    return render(request, 'end_of_test.html')
 
 
 # ----------------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 from django.template.defaulttags import url
 from django.urls import path
 from questions.views import Test_render, questions_Of_test, answers_Of_question, questions_list, questions_data_list, \
-    save_test_view
+    save_test_view, end_of_test
 
 app_name = 'questions'
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('tests/<pk>/', questions_list, name='questions_list'),
     path('tests/<pk>/save', save_test_view, name='save_test_view'),
     path('tests/<pk>/data', questions_data_list, name='questions_data_list'),
+    path('end_of_test/', end_of_test, name='end_of_test')
 
     # path('<int:test_id>/', questions_Of_test, name='questions_Of_test'),
     # path('answer/<int:question_id>/', answers_Of_question, name='answers_Of_question'),

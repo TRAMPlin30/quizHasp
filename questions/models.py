@@ -25,7 +25,7 @@ class Test(models.Model):
 
 class Question(models.Model):
     numbering = models.IntegerField(default=0)
-    name = models.TextField(max_length=200, unique=False)
+    name = models.TextField(max_length=200)
     test = models.ForeignKey(Test, on_delete=models.CASCADE)
 
     def get_answers(self):
@@ -37,7 +37,7 @@ class Question(models.Model):
     class Meta:
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'
-        ordering = ['numbering']
+        ordering = ['name']
 
 
 class Answer(models.Model):
