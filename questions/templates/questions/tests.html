@@ -39,9 +39,9 @@
         <div>
                 {% for test in tests_list %}
                 <p></p>
-                <h3>
+<hr>
                     <button
-                            class="btn btn-link modal-button my-font"
+                            class="btn btn-link modal-button my-font-other"
                             data-pk="{{test.id}}"
                             data-name="{{test.name}}"
                             data-questions="{{test.number_of_questions}}"
@@ -51,7 +51,7 @@
                             data-bs-target="#testsListModal">
                         {{test.name}}
                     </button>
-                </h3>
+
                 {% endfor %}
         </div>
         <hr>

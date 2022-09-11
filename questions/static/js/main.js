@@ -22,12 +22,13 @@ modalBtns.forEach(modalBtns => modalBtns.addEventListener('click', () => {
             <ul>
                 <li>Кількість питань: <b>${questions}</b></li>
                 <li>Прохідний бал: <b>${pass} %</b></li>
-                <li>Обмеження часу: <b>${questions} хвл.</b></li>
+                <li>Обмеження часу: <b>${time} хвл.</b></li>
             </ul>
         </div>
     `
 
     startBtn.addEventListener('click', () => {
         window.location.href = url + pk
-     })
+        console.log(time)
+    })
 }))

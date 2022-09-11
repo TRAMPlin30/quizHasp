@@ -19,21 +19,22 @@
     <style>
 
 body {
-        background:url(/static/bkAll.jpg);
+        background:url(/static/bk-fon.jpg);
 
     }
 
         .my-font {
-        color: #FFF8DC;
-        font-size: 125%;
+        color: #000000;
+        font-size: 100%;
         font-family: Arial;
         }
 
         .my-font-other {
-        color: #FFFAFA;
-        font-size: 100%;
+        color: #000000;
+        font-size: 90%;
         font-family: Arial;
         }
+
 
 
 
@@ -54,10 +55,10 @@ body {
 <div>
     <!-------------------------------------------------------------------------------------------------------------------->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'about' %}">Атестаційна система перевірки знань робітників ТОВ
-                "СМСЗ"</a>
+            <a class="navbar-brand" href="{% url 'about' %}">Атестаційна система ТОВ "СМСЗ"</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -91,18 +92,21 @@ body {
                 </ul>
             </div>
             <div>
-                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'admin:index'%}">Адмінистрація</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'admin:index'%}">Адмінистрація</a>
+                <img src="/static/ukraine.jpg" alt="Nature" width="30" height="30">
             </div>
 
         </div>
     </nav>
+    <br>
+    <br>
+    <br>
     <!-------------------------------------------------------------------------------------------------------------------->
 
     <div class="container mt-3">
         {% block content %}
         {% endblock content %}
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"

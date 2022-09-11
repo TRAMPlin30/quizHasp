@@ -16,7 +16,7 @@ class Test_render(ListView, View):
 
 def questions_list(request, pk):
     test = Test.objects.get(pk=pk)
-    context = {'test_name': test}
+    context = {'test_name': test, 'time': test.time}
     return render(request, 'questions/questions.html', context)
 
 

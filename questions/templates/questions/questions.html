@@ -8,6 +8,16 @@
 {% block title %}tests{% endblock %}
 
 {% block content %}
+<div class="container fixed-top">
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col6 text-danger">Відлік часу!</div>
+        <div class="col text-danger" id="timer-box"></div>
+
+    </div>
+</div>
 <div class="row ">
     <div>
         <!--modal window-->
@@ -45,7 +55,7 @@
                                 class="btn btn-primary mt-3 modal-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#sendResultModal"
-                                >Відповісти
+                        >Відповісти
                         </button>
                     </form>
                     <p></p>

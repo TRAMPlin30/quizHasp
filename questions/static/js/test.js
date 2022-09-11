@@ -3,13 +3,55 @@ console.log('helloo to questions list')
 const url = window.location.href
 const questionsBox = document.getElementById('questions-box')
 let data
+const timerBox = document.getElementById('timer-box')
 
+const activateTimer = (time) => {
+    console.log(time)
+    if (time.toString().length < 2) {
+        timerBox.innerHTML = `<b>0${time}:00</b>`
+    } else {
+        timerBox.innerHTML = `<b>${time}:00</b>`
+    }
+
+    let minutes = time - 1
+    let seconds = 60
+    let displaySecond
+    let displayMinutes
+
+    const timerGo = setInterval(() => {
+        seconds--
+        if (seconds < 0) {
+            seconds = 59
+            minutes--
+        }
+        if (minutes.toString().length < 2) {
+            displayMinutes = '0' + minutes
+        } else {
+            displayMinutes = minutes
+        }
+        if (seconds.toString().length < 2) {
+            displaySecond = '0' + seconds
+        } else {
+            displaySecond = seconds
+        }
+        if (minutes === 0 && seconds === 0) {
+            console.log('time over')
+            clearInterval(timerGo)
+            alert('Нажаль Ваш час було вичерпано! Ваші відповіді автоматично відправлені на перевірку! Зараз Ви будете перенаправлені на головну сторінку сервісу!')
+            sendData()
+            window.location.href = '/'
+
+        }
+        timerBox.innerHTML = `<b>${displayMinutes}:${displaySecond}</b>`
+    }, 1000)
+
+}
 
 $.ajax({
     type: 'GET',
     url: `${url}data`,
     success: function (response) {
-        data = response.data
+        data = response.data   //'data': questions, в файле views.py метод - questions_data_list
         data.forEach(element => {
             for (const [question, answers] of Object.entries(element)) {
                 questionsBox.innerHTML += `
@@ -29,6 +71,7 @@ $.ajax({
 
             }
         });
+        activateTimer(response.time) //'time': test.time, в файле views.py метод - questions_data_list
     },
     error: function (error) {
         console.log(error)
