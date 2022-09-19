@@ -7,32 +7,40 @@
 
 <div class="col-md-8 mx-auto my-font text-center">
 
-        <br>
-        <hr>
-        Для того щоб розпочати тестування Вам потрібно зареєструватись, натиснувши на кнопку "Реєстрація" та
-        перейти за посиланням.
-        <p></p>
-        (уважно прочитайте вимоги щодо заповнення форми реєстрації).
-        <p></p>
-        Якщо ви вже зареєстровані та увійшли до системи, натискайте кнопку "Перейти до тестування" та обирайте потрібний Вам тест згідно з вимогами займаємої посади та підрозділу.
-        <br>
-        <hr>
-        Важливо! До перевірки будуть прийняті результати тільки першої спроби. Усі наступні спробі пройти атестацію без попереднього погодження з адміністрацією будуть проігноровані та видалені з бази!
-        <hr>
-        <br>
+    <br>
+    <hr>
+    Для того щоб розпочати тестування Вам потрібно зареєструватись, натиснувши на кнопку "Реєстрація" та
+    перейти за посиланням.
+    <p></p>
+    (уважно прочитайте вимоги щодо заповнення форми реєстрації).
+    <p></p>
+    Якщо ви вже зареєстровані та увійшли до системи, натискайте кнопку "Перейти до тестування" та обирайте потрібний Вам
+    тест згідно з вимогами займаємої посади та підрозділу.
+    <br>
+    <hr>
+    <div class="text-danger">
+        Важливо! До перевірки будуть прийняті результати тільки першої спроби. Усі наступні спроби пройти атестацію без
+        попереднього погодження з адміністрацією будуть проігноровані та видалені з бази!
+    </div>
 
-        {% if user.is_authenticated %}
-        <div class="col-md-3 mx-auto">
-            <a class="btn btn-success" href="{% url 'questions:tests'%}" data-bs-toggle="tooltip" title="Натисніть для переходу до переліку тестів!">Перейти до тестування</a>
-            {% else %}
-            <div class="col-md-8 mx-auto">
-                <a class="btn btn-success" href="{% url 'accounts:registration'%}" data-bs-toggle="tooltip" title="Натисніть для реєстрації!">Реєстрація</a>
-                <br>
-                <br>
-                <a class="btn btn-success " href="{% url 'accounts:login'%}" data-bs-toggle="tooltip" title="Натисніть для входу!">&nbsp;&nbsp;&nbsp;&nbsp;Увійти&nbsp;&nbsp;&nbsp;&nbsp;</a>
-            </div>
+    <hr>
+    <br>
+
+    {% if user.is_authenticated %}
+    <div class="col-md-3 mx-auto">
+        <a class="btn btn-success" href="{% url 'questions:tests'%}" data-bs-toggle="tooltip"
+           title="Натисніть для переходу до переліку тестів!">Перейти до тестування</a>
+        {% else %}
+        <div class="col-md-8 mx-auto">
+            <a class="btn btn-success" href="{% url 'accounts:registration'%}" data-bs-toggle="tooltip"
+               title="Натисніть для реєстрації!">Реєстрація</a>
+            <br>
+            <br>
+            <a class="btn btn-success " href="{% url 'accounts:login'%}" data-bs-toggle="tooltip"
+               title="Натисніть для входу!">&nbsp;&nbsp;&nbsp;&nbsp;Увійти&nbsp;&nbsp;&nbsp;&nbsp;</a>
         </div>
-        {% endif %}
+    </div>
+    {% endif %}
 
 
 </div>
